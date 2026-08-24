@@ -9,7 +9,7 @@ describe.each([
   },
   {
     input: 'Charmander Bulbasaur PIKACHU',
-    expected: ["charmander", "bulbasaur", "pikachu"]
+    expected: ['charmander', 'bulbasaur', 'pikachu'],
   },
   {
     input: ' hi',
@@ -17,12 +17,12 @@ describe.each([
   },
   {
     input: '',
-    expected: []
+    expected: [],
   },
   {
     input: '  ',
-    expected: []
-  }
+    expected: [],
+  },
 ])('cleanInput($input)', ({ input, expected }) => {
   test(`Expected: ${expected}`, () => {
     const actual = cleanInput(input);
