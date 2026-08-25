@@ -1,9 +1,9 @@
 import { State } from './state.js';
 
-export function startREPL(state: State) {
+export async function startREPL(state: State) {
   state.rl.prompt();
 
-  state.rl.on('line', (line) => {
+  state.rl.on('line', async (line) => {
     const words = cleanInput(line);
 
     if (words.length === 0) {
@@ -12,7 +12,7 @@ export function startREPL(state: State) {
       if (!state.registry[words[0]]) {
         console.log('Unknown command');
       } else {
-        state.registry[words[0]].callback(state);
+        await state.registry[words[0]].callback(state);
       }
 
       state.rl.prompt();
